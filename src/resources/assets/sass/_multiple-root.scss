@@ -1,0 +1,28 @@
+.container {
+  &.multiple-root {
+    padding-top: 20px;
+
+    .box {
+      position: relative;
+      width: 100%;
+
+      &::before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+      }
+
+      .box-title {
+        height: 52px;
+        padding: 14px;
+        background: rgba(0, 0, 0, 0.2);
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        font-size: 24px;
+        width: 100%;
+      }
+    }
+
+  }
+}
