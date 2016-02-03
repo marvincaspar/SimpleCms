@@ -4,6 +4,11 @@ namespace Mc388\SimpleCms;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class SimpleCmsServiceProvider
+ *
+ * @package Mc388\SimpleCms
+ */
 class SimpleCmsServiceProvider extends ServiceProvider
 {
     /**
@@ -16,6 +21,12 @@ class SimpleCmsServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/database/migrations/' => database_path('migrations')
         ], 'migrations');
+
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'mc388-simple-cms');
+
+        $this->publishes([
+            __DIR__ . '/public/' => public_path('simple-cms'),
+        ], 'public');
     }
 
     /**
@@ -25,6 +36,6 @@ class SimpleCmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        include __DIR__ . '/app/routes.php';
     }
 }
