@@ -1,0 +1,177 @@
+.user-panel {
+  height: 60px;
+
+  > .info {
+    left: 0;
+  }
+}
+
+.sidebar-menu {
+  li {
+    &.header {
+      text-transform: uppercase;
+    }
+  }
+}
+
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+ol.manage-contents, ol.manage-contents ol {
+  list-style-type: none;
+  padding-left: 20px;
+  margin: 0;
+
+  &.control-sidebar-dark {
+    padding: 15px;
+  }
+
+  .glyphicon {
+    font-size: 18px;
+    color: #333;
+    margin-right: 32px;
+
+    &.content-type {
+      margin-right: 5px;
+    }
+
+    &.action {
+      float: right;
+      margin-right: 15px;
+    }
+  }
+
+  li {
+    display: block;
+    margin: 5px 0 0 5px;
+    padding: 5px 0 0 5px;
+    border-top: 1px solid #455A64;
+    color: #333;
+    line-height: 24px;
+
+    &.placeholder {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      border: none;
+
+      &:before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        margin-top: -5px;
+        left: -5px;
+        top: -4px;
+        border: 5px solid transparent;
+        border-left-color: rgba(0, 0, 0, 0.56);
+        border-right: none;
+      }
+    }
+
+    span {
+      vertical-align: super;
+    }
+
+    .drag-handler {
+      cursor: move;
+    }
+
+    .action {
+      cursor: pointer;
+    }
+  }
+}
+
+ol.manage-contents {
+  > li {
+    &:first-child {
+      border-top: none;
+    }
+  }
+}
+
+.small-box {
+  &:hover {
+    .icon {
+      font-size: 85px;
+    }
+  }
+
+  .icon {
+    font-size: 80px;
+    top: 0;
+  }
+}
+
+#content-textarea {
+  width: 100%;
+  height: 400px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.box-controls {
+  padding: 5px;
+
+  &.with-border {
+    border-bottom: 1px solid #f4f4f4;
+  }
+}
+
+.media-files {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    float: left;
+    width: 200px;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    margin-right: 10px;
+
+    .media-file-icon {
+      text-align: center;
+      font-size: 65px;
+      color: #666;
+      padding: 20px 10px;
+      display: block;
+
+      &.has-img {
+        padding: 0;
+
+        & > img {
+          max-width: 100%;
+          height: auto;
+          max-height: 166px;
+          vertical-align: middle;
+          border: 0;
+        }
+      }
+    }
+
+    .media-file-info {
+      padding: 10px;
+      background: #f4f4f4;
+
+      .media-file-name {
+        font-weight: bold;
+        color: #666;
+      }
+
+      .media-file-size {
+        color: #999;
+        font-size: 12px;
+        display: block;
+      }
+    }
+  }
+}

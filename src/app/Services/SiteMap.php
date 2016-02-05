@@ -52,7 +52,7 @@ class SiteMap
         $xml[] = "    <loc>$url</loc>";
         $xml[] = "    <lastmod>$lastUpdateFormatted</lastmod>";
         $xml[] = '    <changefreq>daily</changefreq>';
-        $xml[] = '    <priority>0.8</priority>';
+        $xml[] = '    <priority>1.0</priority>';
         $xml[] = '  </url>';
 
         foreach ($contentsInfo as $slug => $lastmod) {
@@ -60,6 +60,7 @@ class SiteMap
             $xml[] = '  <url>';
             $xml[] = "    <loc>{$url}contents/$slug</loc>";
             $xml[] = "    <lastmod>$lastUpdateFormatted</lastmod>";
+            $xml[] = '    <priority>0.9</priority>';
             $xml[] = "  </url>";
         }
 

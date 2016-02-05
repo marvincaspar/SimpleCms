@@ -1,10 +1,10 @@
-@extends('layout.master')
+@extends('simple-cms::layouts.master')
 
 
 @section('head')
-    <link rel="stylesheet" href="{{ asset('simple-cms/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('simple-cms/css/site/app.css') }}">
 
-    <title>Tiwanplan{{ isset($content) ? ' - ' . $content->title : '' }}</title>
+    <title>{{ $settings->website_title }}{{ isset($content) ? ' - ' . $content->title : '' }}</title>
 
     <meta name="description"
           content="{{ isset($content) && !empty($content->teaser) ?  $content->teaser : '' }}">
@@ -36,11 +36,10 @@
                     <address>
                         <strong>{{ $contact->name }}</strong><br><br>
                         {{ $contact->street }}, {{ $contact->postal_code }} {{ $contact->city }}<br><br>
-                        {!! empty($contact->phone) ? '' : $contact->phone . '<br>' !!}
-                        {!! empty($contact->fax) ? '' : $contact->fax . '<br>' !!}
-                        {!! empty($contact->mobile) ? '' : $contact->mobile . '<br>' !!}
-                        {!! empty($contact->fax) ? '' : $contact->fax . '<br>' !!}
-                        {!! empty($contact->email) ? '' : $contact->email . '<br>' !!}
+                        {!! empty($contact->phone) ? '' : '<i class="glyphicon glyphicon-earphone"></i> ' . $contact->phone . '<br>' !!}
+                        {!! empty($contact->fax) ? '' : '<i class="glyphicon glyphicon-print"></i> ' . $contact->fax . '<br>' !!}
+                        {!! empty($contact->mobile) ? '' : '<i class="glyphicon glyphicon-phone"></i> ' . $contact->mobile . '<br>' !!}
+                        {!! empty($contact->email) ? '' : '<i class="glyphicon glyphicon-envelope"></i> ' . $contact->email . '<br>' !!}
                     </address>
                 </div>
             </div>
@@ -51,5 +50,5 @@
 @section('scripts')
     @yield('scripts')
 
-    @include('mc388-simple-cms::site.partials.googleanalytics')
+    @include('simple-cms::site.partials.googleanalytics')
 @stop
