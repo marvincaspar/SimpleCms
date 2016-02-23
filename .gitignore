@@ -3,3 +3,4 @@ src/node_modules
 src/out
 vendor/
 .idea
+composer.lock

@@ -1,3 +1,7 @@
+[![Code Climate](https://codeclimate.com/github/mc388/SimpleCms/badges/gpa.svg)](https://codeclimate.com/github/mc388/SimpleCms)
+[![Test Coverage](https://codeclimate.com/github/mc388/SimpleCms/badges/coverage.svg)](https://codeclimate.com/github/mc388/SimpleCms/coverage)
+[![Issue Count](https://codeclimate.com/github/mc388/SimpleCms/badges/issue_count.svg)](https://codeclimate.com/github/mc388/SimpleCms)
+
 # Simple CMS for laravel 5
 
 Simple CMS provides you to create small and simple cms pages.

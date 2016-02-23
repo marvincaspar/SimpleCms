@@ -1,0 +1,39 @@
+engines:
+  fixme:
+    enabled: true
+  phpcodesniffer:
+    enabled: true
+  phpmd:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+      - php
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+
+ratings:
+   paths:
+   - src/**/*
+   - "**.php"
+   - "**.js"
+   - "**.css"
+   - "**.scss"
+
+exclude_paths:
+- src/gulpfile.js
+- src/public/**/*
+- src/resources/assets/js/admin/wysihtml/**/*
+- src/resources/assets/js/admin/bootstrap-notify.min.js
+- src/resources/assets/js/admin/jquery-sortable.js
+- src/resources/assets/js/admin/selectize.min.js
+- src/resources/assets/js/admin/theme.js
+- src/resources/assets/js/admin/wysihtml.js
+- src/resources/assets/js/modernizr.custom.js
+- src/resources/assets/sass/admin/selectize.scss
+- src/resources/assets/sass/admin/theme.scss
+- src/resources/assets/sass/admin/wysithml.scss
