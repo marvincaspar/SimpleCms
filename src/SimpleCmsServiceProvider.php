@@ -3,6 +3,8 @@
 namespace Mc388\SimpleCms;
 
 use Illuminate\Support\ServiceProvider;
+use Mc388\SimpleCms\App\Models\Contact;
+use Mc388\SimpleCms\App\Models\Setting;
 
 /**
  * Class SimpleCmsServiceProvider
@@ -18,15 +20,44 @@ class SimpleCmsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'simple-cms');
+        $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'simple-cms');
+
         $this->publishes([
             __DIR__ . '/database/migrations/' => database_path('migrations')
         ], 'migrations');
 
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'mc388-simple-cms');
-
         $this->publishes([
             __DIR__ . '/public/' => public_path('simple-cms'),
         ], 'public');
+
+        $this->publishes([
+            __DIR__ . '/config' => config_path(),
+        ], 'config');
+
+        // Add the followin parameter to the site layout:
+        // - contact
+        // - settings
+        app('view')->composer('simple-cms::layouts.site', function ($view) {
+            $contact = Contact::firstOrCreate([]);
+            $settings = Setting::firstOrCreate([]);
+
+            $view->with(compact('contact', 'settings'));
+        });
+
+        // Add the followin parameter to the admin layout:
+        // - controller
+        // - settings
+        app('view')->composer('simple-cms::layouts.admin', function ($view) {
+            $action = app('request')->route()->getAction();
+            $controller = class_basename($action['controller']);
+            list($controller, $action) = explode('@', $controller);
+
+            $contact = Contact::firstOrCreate([]);
+            $settings = Setting::firstOrCreate([]);
+
+            $view->with(compact('contact', 'controller', 'settings'));
+        });
     }
 
     /**

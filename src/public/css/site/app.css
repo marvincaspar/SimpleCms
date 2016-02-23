@@ -15,7 +15,9 @@
   border-color: #0c080a; }
   .navbar-default .navbar-nav .dropdown-menu {
     border-radius: 0; }
-  .navbar-default .navbar-nav li a {
+  .navbar-default .navbar-nav li a,
+  .navbar-default .navbar-nav li a:focus,
+  .navbar-default .navbar-nav li a:hover {
     color: #8c1126;
     font-weight: bold; }
   .navbar-default .navbar-nav li.active a,

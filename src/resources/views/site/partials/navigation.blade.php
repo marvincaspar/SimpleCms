@@ -24,7 +24,7 @@
                         <li class="{{ $content->isActive($node) ?  'active' : '' }} {{ $node->hasChildren()? 'dropdown-submenu' : '' }}">
                             <a href="{{ $node->getUrl() }}">{{ $node->nav_title  }}</a>
                             @if($node->hasChildren())
-                                @include('mc388-simple-cms::site.partials.subnavigation', ['children' => $node->getChildren()])
+                                @include('simple-cms::site.partials.subnavigation', ['children' => $node->getChildren()])
                             @endif
                         </li>
                     @endif
@@ -45,7 +45,7 @@
                             </a>
                         </li>
                         @if($node->hasChildren())
-                            @include('mc388-simple-cms::site.partials.mobilesubnavigation', ['children' => $node->getChildren()])
+                            @include('simple-cms::site.partials.mobilesubnavigation', ['children' => $node->getChildren()])
                         @endif
                     @endif
                 @endforeach

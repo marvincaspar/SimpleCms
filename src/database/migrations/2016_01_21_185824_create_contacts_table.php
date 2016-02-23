@@ -43,5 +43,4 @@ class CreateContactsTable extends Migration
     {
         Schema::drop('contacts');
     }
-
 }

@@ -5,6 +5,6 @@
         </a>
     </li>
     @if($node->hasChildren())
-        @include('mc388-simple-cms::site.partials.mobilesubnavigation', ['children' => $node->getChildren()])
+        @include('simple-cms::site.partials.mobilesubnavigation', ['children' => $node->getChildren()])
     @endif
 @endforeach

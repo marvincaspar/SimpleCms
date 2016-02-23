@@ -7,8 +7,7 @@ require_once dirname(__FILE__) . '../../../../../vendor/mobiledetect/mobiledetec
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use Mc388\SimpleCms\App\Models\Contact;
+use Illuminate\Routing\Controller;
 use Mc388\SimpleCms\App\Models\Content;
 use Mc388\SimpleCms\App\Services\SiteMap;
 
@@ -29,16 +28,13 @@ class ContentController extends Controller
      */
     public function index(Request $request)
     {
-        $contact = Contact::first();
-
         $contents = Content::roots()->get();
         if ($contents->count() == 0) {
             throw new \Exception('Contents are missing');
         }
 
-        return view('mc388-simple-cms::site.contents.index', [
+        return view('simple-cms::site.contents.index', [
             'isMobile' => $this->isMobile($request),
-            'contact' => $contact,
             'contents' => $contents
         ]);
     }
@@ -55,14 +51,11 @@ class ContentController extends Controller
      */
     public function show($slug, Request $request)
     {
-        $contact = Contact::first();
-
         $content = Content::where('slug', $slug)->first();
         $this->checkPage($content, $slug);
 
-        return view('mc388-simple-cms::site.contents.show', [
+        return view('simple-cms::site.contents.show', [
             'isMobile' => $this->isMobile($request),
-            'contact' => $contact,
             'content' => $content
         ]);
     }

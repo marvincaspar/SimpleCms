@@ -5,7 +5,7 @@
                 {{ $node->nav_title  }}
             </a>
             @if($node->hasChildren())
-                @include('mc388-simple-cms::site.partials.subnavigation', ['children' => $node->getChildren()])
+                @include('simple-cms::site.partials.subnavigation', ['children' => $node->getChildren()])
             @endif
         </li>
     @endforeach

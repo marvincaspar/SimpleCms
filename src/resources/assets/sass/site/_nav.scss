@@ -31,7 +31,9 @@
     }
 
     li {
-      a {
+      a,
+      a:focus,
+      a:hover {
         color: $nav-color;
         font-weight: bold;
       }

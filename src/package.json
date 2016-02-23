@@ -2,10 +2,9 @@
   "private": true,
   "devDependencies": {
     "gulp": "*",
+    "gulp-autoprefixer": "*",
     "gulp-sass": "*",
-    "gulp-autoprefixer": "*"
-  },
-  "dependencies": {
-    "bootstrap-sass": "^3.0.0"
+    "gulp-uncss": "*",
+    "merge-stream": "*"
   }
 }

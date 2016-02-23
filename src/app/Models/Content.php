@@ -206,46 +206,6 @@ class Content extends Node
     }
 
     /**
-     * @return string
-     */
-    public function renderNode()
-    {
-        $html = '<li data-id="' . $this->id . '" data-parent_id="' . $this->parent_id . '" data-lft="' . $this->lft . '" data-rgt="' . $this->rgt . '" data-name="' . $this->nav_title . '">';
-        $html .= '<i class="drag-handler material-icons mdl-color-text--blue-grey-400" role="presentation">reorder</i>';
-
-        if ($this->isRoot()) {
-            $html .= '<i class="material-icons content-type" role="presentation">home</i>';
-        }
-
-        if ($this->type == self::TYPE_GLOBAL) {
-            $html .= '<i class="material-icons content-type">public</i>';
-        }
-
-        if ($this->type == self::TYPE_LINK) {
-            $html .= '<i class="material-icons content-type" role="presentation">link</i>';
-        }
-
-        $html .= '<span>' . $this->nav_title . '</span>';
-
-        $html .= '<i class="material-icons action action-delete" role="presentation">delete</i>';
-        $html .= '<a href="' . $this->getEditUrl() . '"><i class="material-icons action action-edit" role="presentation">mode_edit</i></a>';
-
-        $html .= '<ol>';
-
-        if ($this->hasChildren()) {
-            foreach ($this->getChildren() as $child) {
-                $html .= $child->renderNode();
-            }
-        }
-
-        $html .= '</ol>';
-
-        $html .= '</li>';
-
-        return $html;
-    }
-
-    /**
      * @param $node
      *
      * @return bool

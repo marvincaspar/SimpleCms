@@ -1,7 +1,7 @@
-@extends('mc388-simple-cms::layout.site')
+@extends('simple-cms::layouts.site')
 
 @section('header')
-    @include('mc388-simple-cms::site.partials.navigation', ['content' => $content])
+    @include('simple-cms::site.partials.navigation', ['content' => $content])
 @stop
 
 @section('content')
