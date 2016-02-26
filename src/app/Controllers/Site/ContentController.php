@@ -2,13 +2,12 @@
 
 namespace Mc388\SimpleCms\App\Controllers\Site;
 
-require_once dirname(__FILE__) . '../../../../../vendor/mobiledetect/mobiledetectlib/Mobile_Detect.php';
-
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Requests;
 use Illuminate\Routing\Controller;
 use Mc388\SimpleCms\App\Models\Content;
+use Mc388\SimpleCms\App\Services\MobileDetect;
 use Mc388\SimpleCms\App\Services\SiteMap;
 
 /**
@@ -18,6 +17,19 @@ use Mc388\SimpleCms\App\Services\SiteMap;
  */
 class ContentController extends Controller
 {
+    /** @var MobileDetect $mobileDetect */
+    protected $mobileDetect;
+
+    /**
+     * DashboardController constructor.
+     *
+     * @param MobileDetect $mobileDetect
+     */
+    public function __construct(MobileDetect $mobileDetect)
+    {
+        $this->mobileDetect = $mobileDetect;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -64,7 +76,6 @@ class ContentController extends Controller
      * Get the SiteMap
      *
      * @param SiteMap $siteMap
-     *
      * @param Request $request
      *
      * @return mixed
@@ -108,7 +119,6 @@ class ContentController extends Controller
      */
     protected function isMobile(Request $request)
     {
-        $detect = new \Mobile_Detect();
-        return $detect->isMobile($request->header('user-agent')) || $detect->isTablet($request->header('user-agent'));
+        return $this->mobileDetect->isMobile($request->header('user-agent')) || $this->mobileDetect->isTablet($request->header('user-agent'));
     }
 }
