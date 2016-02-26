@@ -16,6 +16,8 @@ Route::group(['middleware' => 'web'], function () {
 
                 return $response;
             }
+
+            abort(404);
         }
     );
 
