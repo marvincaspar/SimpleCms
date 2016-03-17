@@ -119,6 +119,10 @@ class ContentController extends Controller
         $this->checkPage($content, $slug);
 
         foreach (array_keys(array_except($this->fields, ['content'])) as $field) {
+            // Do not set parent_id on update
+            if ($field == 'parent_id') {
+                continue;
+            }
             $content->$field = $request->get($field);
         }
         $content->save();
