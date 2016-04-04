@@ -28,7 +28,11 @@
                             @if (starts_with($file['name'], '.') == false)
                                 <li>
                                     <span class="media-file-icon has-img">
-                                        <img src="{{ $file['webPath'] }}" alt="Attachment">
+                                        @if (starts_with($file['mimeType'], 'image'))
+                                            <img src="{{ $file['webPath'] }}" alt="Attachment">
+                                        @else
+                                            <i class="glyphicon glyphicon-file"></i>
+                                        @endif
                                     </span>
 
                                     <div class="media-file-info">
